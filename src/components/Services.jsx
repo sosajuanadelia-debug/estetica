@@ -113,7 +113,7 @@ export default function Services() {
       {/* MODAL DE AMPLIACIÓN DE DETALLES DEL SERVICIO */}
       {/* ============================================================ */}
       {selectedService && (
-        <div className="fixed inset-0 z-50 bg-[#1F3024]/70 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 bg-[#1F3024]/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-in fade-in duration-200">
           
           {/* Backdrop Click Handler */}
           <div 
@@ -122,59 +122,59 @@ export default function Services() {
           />
 
           {/* Modal Card */}
-          <div className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-[#D4AF37]/30 relative z-10 my-8 transform animate-in zoom-in-95 duration-200">
+          <div className="bg-white rounded-2xl sm:rounded-3xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden shadow-2xl border border-[#D4AF37]/30 relative z-10 my-auto transform animate-in zoom-in-95 duration-200">
             
+            {/* Botón Fijo de Cerrar (Siempre visible en la esquina superior derecha) */}
+            <button 
+              onClick={() => setSelectedService(null)}
+              className="absolute top-3 right-3 z-30 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-[#1F3024] flex items-center justify-center shadow-lg transition-all cursor-pointer border border-[#1F3024]/10 active:scale-95"
+              aria-label="Cerrar modal"
+            >
+              <X className="w-5 h-5 stroke-[2.5]" />
+            </button>
+
             {/* Header Image with Gradient */}
-            <div className="relative h-64 sm:h-72 overflow-hidden bg-[#E6ECE7]">
+            <div className="relative h-44 sm:h-64 shrink-0 overflow-hidden bg-[#E6ECE7]">
               <img 
                 src={selectedService.image} 
                 alt={selectedService.title} 
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1F3024]/80 via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1F3024]/85 via-[#1F3024]/30 to-transparent" />
               
-              {/* Close Button */}
-              <button 
-                onClick={() => setSelectedService(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-[#1F3024] flex items-center justify-center shadow-lg transition-colors cursor-pointer"
-                aria-label="Cerrar modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
               {/* Title & Badge Overlay */}
-              <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+              <div className="absolute bottom-4 left-4 right-14 sm:bottom-6 sm:left-6 sm:right-6 text-white space-y-1.5">
                 {selectedService.duration && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37] text-[#1F3024] text-xs font-bold shadow-sm">
-                    <Clock className="w-3.5 h-3.5" />
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#D4AF37] text-[#1F3024] text-[10px] sm:text-xs font-bold shadow-sm">
+                    <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     <span>Duración: {selectedService.duration}</span>
                   </span>
                 )}
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">
+                <h3 className="font-serif text-xl sm:text-3xl font-bold text-white leading-tight">
                   {selectedService.title}
                 </h3>
               </div>
             </div>
 
-            {/* Modal Body */}
-            <div className="p-6 sm:p-8 space-y-6 max-h-[60vh] overflow-y-auto">
+            {/* Modal Body (Scrollable) */}
+            <div className="p-4 sm:p-8 space-y-4 sm:space-y-6 overflow-y-auto flex-1">
               {/* Resumen */}
-              <div className="space-y-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
+              <div className="space-y-1.5">
+                <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
                   Descripción General
                 </h4>
-                <p className="text-sm sm:text-base text-[#4E5C51] leading-relaxed">
+                <p className="text-xs sm:text-base text-[#4E5C51] leading-relaxed">
                   {selectedService.description}
                 </p>
               </div>
 
               {/* Protocolo y Detalles de Atención */}
               {selectedService.fullDetails && (
-                <div className="space-y-2 pt-2 border-t border-[#1F3024]/10">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#1F3024]">
+                <div className="space-y-1.5 pt-2 border-t border-[#1F3024]/10">
+                  <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#1F3024]">
                     Protocolo & Detalles del Tratamiento
                   </h4>
-                  <p className="text-sm text-[#4E5C51] leading-relaxed bg-[#FAF9F6] p-4 rounded-2xl border border-[#1F3024]/5">
+                  <p className="text-xs sm:text-sm text-[#4E5C51] leading-relaxed bg-[#FAF9F6] p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-[#1F3024]/5">
                     {selectedService.fullDetails}
                   </p>
                 </div>
@@ -182,14 +182,14 @@ export default function Services() {
 
               {/* Beneficios Clave */}
               {selectedService.benefits && selectedService.benefits.length > 0 && (
-                <div className="space-y-3 pt-2 border-t border-[#1F3024]/10">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#1F3024]">
+                <div className="space-y-2.5 pt-2 border-t border-[#1F3024]/10">
+                  <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#1F3024]">
                     Beneficios Principales
                   </h4>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5 sm:space-y-2">
                     {selectedService.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-sm text-[#4E5C51]">
-                        <Check className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5 stroke-[3]" />
+                      <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#4E5C51]">
+                        <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D4AF37] shrink-0 mt-0.5 stroke-[3]" />
                         <span>{benefit}</span>
                       </div>
                     ))}
@@ -199,10 +199,10 @@ export default function Services() {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-6 sm:p-8 pt-4 bg-[#FAF9F6] border-t border-[#1F3024]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="p-4 sm:p-6 bg-[#FAF9F6] border-t border-[#1F3024]/10 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
               <button
                 onClick={() => setSelectedService(null)}
-                className="w-full sm:w-auto px-6 py-3 rounded-full border border-[#1F3024]/20 hover:border-[#1F3024] text-[#1F3024] text-xs font-semibold transition-colors cursor-pointer"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-full border border-[#1F3024]/20 hover:border-[#1F3024] text-[#1F3024] text-xs font-semibold transition-colors cursor-pointer active:bg-gray-100"
               >
                 Cerrar
               </button>
@@ -211,7 +211,7 @@ export default function Services() {
                 href={getWhatsAppLink(`¡Hola! Me gustaría agendar o solicitar más información sobre el servicio: ${selectedService.title}`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-[#1F3024] hover:bg-[#1E2B21] text-[#D4AF37] text-xs font-semibold px-8 py-3.5 rounded-full flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+                className="w-full sm:w-auto bg-[#1F3024] hover:bg-[#1E2B21] text-[#D4AF37] text-xs font-semibold px-6 py-3 rounded-full flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4 fill-current" />
                 <span>Consultar por WhatsApp</span>
