@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+
+  --color-gold: #D4AF37;
+  --color-gold-hover: #B8952A;
+  --color-forest: #1F3024;
+  --color-forest-dark: #1E2B21;
+  --color-sage: #4E5C51;
+  --color-sage-muted: #808D83;
+  --color-sage-light: #E6ECE7;
+  --color-sage-tint: #E2E8E3;
+  --color-cream: #FAF9F6;
+  --color-cream-card: #F3F1EC;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-cream);
+    color: var(--color-forest);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif-display {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom Utilities & Glassmorphism */
+.glass-nav {
+  background: rgba(250, 249, 246, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #D4AF37 0%, #C49E2B 100%);
+}
+
+.hero-shadow {
+  box-shadow: 0 24px 48px -12px rgba(31, 48, 36, 0.12);
+}
