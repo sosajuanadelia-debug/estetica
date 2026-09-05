@@ -11,9 +11,9 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
         {/* ============================================================ */}
-        {/* SECCIÓN DE SERVICIOS - SOLO VISIBLE EN COMPUTADORA (DESKTOP) */}
+        {/* SECCIÓN DE SERVICIOS - VISIBLE EN TODOS LOS DISPOSITIVOS */}
         {/* ============================================================ */}
-        <div className="hidden md:block space-y-16">
+        <div className="space-y-12 md:space-y-16">
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
