@@ -110,24 +110,48 @@ export const siteContent = {
   gallery: [
     {
       img: "/assets/gallery_1.png",
+      images: [
+        "/assets/gallery_1.png",
+        "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1512290900673-700200411756?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80"
+      ],
       title: "Facial Glow Botánico",
       category: "Cuidado Facial",
       desc: "Limpieza profunda e hidratación orgánica"
     },
     {
       img: "/assets/gallery_2.png",
+      images: [
+        "/assets/gallery_2.png",
+        "https://images.unsplash.com/photo-1583001809873-a1284a56397e?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=80"
+      ],
       title: "Lifting & Extensiones",
       category: "Diseño de Mirada",
       desc: "Efecto natural y volumen pelo a pelo"
     },
     {
       img: "/assets/gallery_3.png",
+      images: [
+        "/assets/gallery_3.png",
+        "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80"
+      ],
       title: "Cabina de Bienestar",
       category: "Ambiente Spa",
       desc: "Espacio diseñado para tu desconexión total"
     },
     {
       img: "/assets/gallery_4.png",
+      images: [
+        "/assets/gallery_4.png",
+        "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=800&q=80"
+      ],
       title: "Pedicura Botánica Spa",
       category: "Manos & Pies",
       desc: "Exfoliación con sales y parafina vegetal"

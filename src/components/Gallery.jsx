@@ -1,6 +1,126 @@
-import React, { useState } from 'react';
-import { Eye, Sparkles, X, ZoomIn } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Sparkles, X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import { siteContent } from '../data/siteContent';
+
+function GalleryCard({ item, onOpenLightbox }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const images = item.images && item.images.length > 0 ? item.images : [item.img];
+
+  // Auto-play timer: 3.5 seconds interval, paused on hover
+  useEffect(() => {
+    if (isHovered || images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [isHovered, images.length]);
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const handleDotClick = (e, idx) => {
+    e.stopPropagation();
+    setCurrentIndex(idx);
+  };
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={() => onOpenLightbox({ ...item, activeImg: images[currentIndex] })}
+      className="group relative rounded-3xl overflow-hidden shadow-md bg-[#1F3024] aspect-[3/4] cursor-pointer hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 select-none"
+    >
+      {/* Carousel Images with Smooth Fade Transition */}
+      {images.map((imgUrl, idx) => (
+        <img
+          key={idx}
+          src={imgUrl}
+          alt={`${item.title} - ${idx + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-105 ${
+            idx === currentIndex ? 'opacity-100 z-0' : 'opacity-0 z-0 pointer-events-none'
+          }`}
+        />
+      ))}
+
+      {/* Dark Gradient Overlay for optimal title/subtitle readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1F3024]/95 via-[#1F3024]/40 to-transparent z-10 pointer-events-none" />
+
+      {/* Top Tag */}
+      <div className="absolute top-4 left-4 z-20">
+        <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1.5 rounded-full glass-nav text-[#1F3024] shadow-xs">
+          {item.category}
+        </span>
+      </div>
+
+      {/* Navigation Arrows Overlay */}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={handlePrev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full bg-black/40 hover:bg-[#D4AF37] hover:text-[#1F3024] text-white flex items-center justify-center transition-all duration-200 backdrop-blur-xs border border-white/20 shadow-md cursor-pointer"
+            aria-label="Imagen anterior"
+          >
+            <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full bg-black/40 hover:bg-[#D4AF37] hover:text-[#1F3024] text-white flex items-center justify-center transition-all duration-200 backdrop-blur-xs border border-white/20 shadow-md cursor-pointer"
+            aria-label="Siguiente imagen"
+          >
+            <ChevronRight className="w-5 h-5 stroke-[2.5]" />
+          </button>
+        </>
+      )}
+
+      {/* Bottom Content & Indicator Dots */}
+      <div className="absolute bottom-4 left-4 right-4 z-20 text-white space-y-2">
+        <div className="space-y-0.5">
+          <h3 className="font-serif text-xl font-bold text-[#FAF9F6] drop-shadow-md">
+            {item.title}
+          </h3>
+          <p className="text-xs text-[#E6ECE7] line-clamp-2 drop-shadow-sm">
+            {item.desc}
+          </p>
+        </div>
+
+        {/* Dots Indicators */}
+        {images.length > 1 && (
+          <div className="flex items-center justify-center gap-1.5 pt-1.5">
+            {images.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={(e) => handleDotClick(e, idx)}
+                className={`transition-all duration-300 rounded-full cursor-pointer ${
+                  idx === currentIndex
+                    ? 'w-6 h-1.5 bg-[#D4AF37]'
+                    : 'w-1.5 h-1.5 bg-white/50 hover:bg-white'
+                }`}
+                aria-label={`Ir a foto ${idx + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Hover Zoom Icon */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#D4AF37] text-[#1F3024] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl transform scale-75 group-hover:scale-100 pointer-events-none">
+        <ZoomIn className="w-5 h-5 stroke-[2.5]" />
+      </div>
+    </div>
+  );
+}
 
 export default function Gallery() {
   const { gallery, businessInfo } = siteContent;
@@ -38,64 +158,28 @@ export default function Gallery() {
           </div>
         </div>
 
-        {/* 4 Column Gallery Grid */}
+        {/* 4 Column Gallery Grid with Interactive Carousels */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {gallery.map((item, index) => (
-            <div 
-              key={index}
-              onClick={() => setActiveImage(item)}
-              className="group relative rounded-3xl overflow-hidden shadow-md bg-white aspect-[3/4] cursor-pointer hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1"
-            >
-              {/* Image */}
-              <img 
-                src={item.img} 
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1F3024]/90 via-[#1F3024]/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
-
-              {/* Top Tag */}
-              <div className="absolute top-4 left-4">
-                <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1.5 rounded-full glass-nav text-[#1F3024] shadow-xs">
-                  {item.category}
-                </span>
-              </div>
-
-              {/* Bottom Content */}
-              <div className="absolute bottom-6 left-6 right-6 text-white space-y-1 transform group-hover:-translate-y-1 transition-transform">
-                <h3 className="font-serif text-xl font-bold text-[#FAF9F6]">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-[#E6ECE7] line-clamp-2">
-                  {item.desc}
-                </p>
-              </div>
-
-              {/* Hover Eye / Zoom Icon */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-[#D4AF37] text-[#1F3024] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl transform scale-75 group-hover:scale-100">
-                <ZoomIn className="w-6 h-6 stroke-[2.5]" />
-              </div>
-            </div>
+            <GalleryCard 
+              key={index} 
+              item={item} 
+              onOpenLightbox={(selected) => setActiveImage(selected)} 
+            />
           ))}
         </div>
 
       </div>
 
-      {/* ============================================================ */}
-      {/* LIGHTBOX MODAL - VISUALIZACIÓN EN PANTALLA COMPLETA */}
-      {/* ============================================================ */}
+      {/* LIGHTBOX MODAL */}
       {activeImage && (
         <div className="fixed inset-0 z-50 bg-[#1E2B21]/95 backdrop-blur-lg flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-200">
           
-          {/* Backdrop Click Handler */}
           <div 
             className="fixed inset-0" 
             onClick={() => setActiveImage(null)} 
           />
 
-          {/* Close Button Top Right */}
           <button 
             onClick={() => setActiveImage(null)}
             className="fixed top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer border border-white/20"
@@ -104,19 +188,16 @@ export default function Gallery() {
             <X className="w-6 h-6" />
           </button>
 
-          {/* Lightbox Container */}
           <div className="relative z-10 max-w-4xl w-full max-h-[85vh] flex flex-col items-center justify-center animate-in zoom-in-95 duration-200">
             
-            {/* Image Container */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-black/40 max-h-[70vh]">
               <img 
-                src={activeImage.img} 
+                src={activeImage.activeImg || activeImage.img} 
                 alt={activeImage.title} 
                 className="max-h-[70vh] w-auto max-w-full object-contain mx-auto"
               />
             </div>
 
-            {/* Image Caption Details */}
             <div className="mt-6 text-center space-y-2 max-w-xl px-4">
               <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full bg-[#D4AF37] text-[#1F3024]">
                 {activeImage.category}
