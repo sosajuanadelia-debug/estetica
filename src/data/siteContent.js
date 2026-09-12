@@ -6,8 +6,8 @@ export const siteContent = {
     name: "Pizpireta Beauty",
     tagline: "Estética Botánica & Bienestar Holístico",
     subtitle: "Beauty & Spa",
-    phoneDisplay: "+34 600 123 456",
-    whatsappNumber: "34600123456", // Número en formato internacional sin símbolos (ej: 34600123456 o 5491112345678)
+    phoneDisplay: "+54 9 263 475-4016",
+    whatsappNumber: "5492634754016", // Número en formato internacional sin símbolos (ej: 34600123456 o 5491112345678)
     whatsappMessage: "¡Hola Pizpireta Beauty! Me gustaría agendar una cita o solicitar más información sobre sus servicios.",
     calendlyUrl: "https://calendly.com/eneco-2409", // URL de tu cuenta de Calendly (ej: https://calendly.com/tu-usuario/cita)
     address: "Av. Principal de la Belleza 450, Centro de Bienestar, Piso 2",
