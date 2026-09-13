@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Leaf, Instagram, Award } from 'lucide-react';
+import { siteContent } from '../data/siteContent';
 
 export default function StatementBar() {
   return (
@@ -22,13 +23,13 @@ export default function StatementBar() {
         </div>
 
         <a 
-          href="https://instagram.com" 
+          href={siteContent.businessInfo.instagramUrl} 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-[#D4AF37] hover:text-white transition-colors"
         >
           <Instagram className="w-4 h-4" />
-          <span className="font-semibold">@pizpiretabeauty</span>
+          <span className="font-semibold">@pizpiretasbeauty</span>
         </a>
 
       </div>

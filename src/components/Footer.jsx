@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Instagram, Facebook, Heart } from 'lucide-react';
+import { siteContent } from '../data/siteContent';
 
 export default function Footer() {
   return (
@@ -48,7 +49,7 @@ export default function Footer() {
             </div>
             
             <div className="pt-2 flex items-center gap-3">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] hover:text-[#1F3024] flex items-center justify-center transition-colors">
+              <a href={siteContent.businessInfo.instagramUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] hover:text-[#1F3024] flex items-center justify-center transition-colors">
                 <Instagram className="w-4 h-4" />
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] hover:text-[#1F3024] flex items-center justify-center transition-colors">

@@ -12,7 +12,7 @@ export const siteContent = {
     calendlyUrl: "https://calendly.com/eneco-2409", // URL de tu cuenta de Calendly (ej: https://calendly.com/tu-usuario/cita)
     address: "Av. Principal de la Belleza 450, Centro de Bienestar, Piso 2",
     schedule: "Lunes a Viernes: 09:00 - 20:00 hs | Sábados: 09:00 - 15:00 hs",
-    instagramUrl: "https://instagram.com/pizpiretabeauty",
+    instagramUrl: "https://www.instagram.com/pizpiretasbeauty/",
     ratingScore: "4.9",
   },
 
@@ -113,48 +113,48 @@ export const siteContent = {
       images: [
         "/assets/gallery_1.png",
         "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1512290900673-700200411756?auto=format&fit=crop&w=800&q=80",
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789260901/7408004b-611b-457f-bd30-9b3b4ce0ca5f.jpg",
         "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80"
       ],
-      title: "Facial Glow Botánico",
+      title: "Limpieza profunda e hidratación orgánica",
       category: "Cuidado Facial",
-      desc: "Limpieza profunda e hidratación orgánica"
+      desc: ""
     },
     {
       img: "/assets/gallery_2.png",
       images: [
         "/assets/gallery_2.png",
-        "https://images.unsplash.com/photo-1583001809873-a1284a56397e?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=80"
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789260716/Aceite-girasol-depilacion-con-cera.png",
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789260716/aDEPCERA_1753827768.jpg",
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789260717/depilacion-laser-media-pierna1.jpg"
       ],
-      title: "Lifting & Extensiones",
-      category: "Diseño de Mirada",
-      desc: "Efecto natural y volumen pelo a pelo"
+      title: "Laser & Cera",
+      category: "Depilacion",
+      desc: ""
     },
     {
       img: "/assets/gallery_3.png",
       images: [
-        "/assets/gallery_3.png",
-        "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80"
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789261370/copy_of_whatsapp_image_2026-09-02_at_12922_pm.webp",
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789261044/client-lies-salon-cosmetology-table-with-white-mask-her-face_343596-4301.jpg",
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789261043/young-woman-lying-cosmetologist-s-table-rejuvenation-procedure-cosmetologist-take-care-about-neck-face-skin-youthfull-wellness-hardware-face-cleaning-procedure_343596-7874.jpg",
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789261043/tratamientofacial.jpg"
       ],
       title: "Cabina de Bienestar",
       category: "Ambiente Spa",
-      desc: "Espacio diseñado para tu desconexión total"
+      desc: ""
     },
     {
       img: "/assets/gallery_4.png",
       images: [
         "/assets/gallery_4.png",
-        "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=800&q=80"
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789259320/2771c474-2df4-41ac-94ea-b423ec5ca371_296862.webp",
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789259316/Captura_de_pantalla_2026-09-12_211953_296862.webp",
+        "https://res.cloudinary.com/dtxnm8mw/image/upload/v1789259312/Captura_de_pantalla_2026-09-12_212104_296862.webp"
       ],
       title: "Pedicura Botánica Spa",
       category: "Manos & Pies",
-      desc: "Exfoliación con sales y parafina vegetal"
+      desc: ""
     }
   ]
 };
