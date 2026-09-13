@@ -96,7 +96,7 @@ export default function FinalCTA({ onOpenCalendly }) {
                   <span className="font-serif font-bold text-lg">Mapa de Ubicación</span>
                 </div>
                 <a 
-                  href={`https://maps.google.com/?q=${encodeURIComponent(businessInfo.address)}`}
+                  href={businessInfo.mapsUrl || "https://maps.app.goo.gl/CbgBaA5i4NedWiHi6"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs text-[#D4AF37] hover:text-white transition-colors"
@@ -110,7 +110,7 @@ export default function FinalCTA({ onOpenCalendly }) {
               <div className="relative w-full h-[380px] sm:h-[420px] rounded-2xl overflow-hidden shadow-inner border border-white/10 bg-[#FAF9F6]">
                 <iframe 
                   title="Ubicación de Pizpireta Beauty"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168878895083!2d-58.381592!3d-34.603722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzEzLjQiUyA1OMKwMjInNTMuNyJX!5e0!3m2!1ses!2sar!4v1650000000000!5m2!1ses!2sar"
+                  src="https://maps.google.com/maps?q=-33.070632,-68.485298&hl=es&z=16&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

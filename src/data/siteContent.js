@@ -11,8 +11,9 @@ export const siteContent = {
     whatsappMessage: "¡Hola Pizpireta Beauty! Me gustaría agendar una cita o solicitar más información sobre sus servicios.",
     calendlyUrl: "https://calendly.com/eneco-2409", // URL de tu cuenta de Calendly (ej: https://calendly.com/tu-usuario/cita)
     address: "Av. Principal de la Belleza 450, Centro de Bienestar, Piso 2",
-    schedule: "Lunes a Viernes: 09:00 - 20:00 hs | Sábados: 09:00 - 15:00 hs",
+    schedule: "Lunes a Viernes: 09:00 - 12:00 y de 15:00 - 19:30 hs | Sábados: 09:00 - 14:00 hs",
     instagramUrl: "https://www.instagram.com/pizpiretasbeauty/",
+    mapsUrl: "https://maps.app.goo.gl/CbgBaA5i4NedWiHi6",
     ratingScore: "4.9",
   },
 

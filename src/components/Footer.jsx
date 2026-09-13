@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <footer className="bg-[#1E2B21] text-[#E6ECE7] pt-16 pb-12 border-t border-[#D4AF37]/20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-[#FAF9F6]/10">
-          
+
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
@@ -43,18 +43,17 @@ export default function Footer() {
               Horario & Ubicación
             </h4>
             <div className="text-sm text-[#808D83] space-y-1">
-              <p>Lunes a Viernes: 09:00 - 20:00 hs</p>
-              <p>Sábados: 09:00 - 15:00 hs</p>
+              <p>{siteContent.businessInfo.schedule}</p>
               <p>Domingos: Cerrado por descanso</p>
             </div>
-            
+
             <div className="pt-2 flex items-center gap-3">
               <a href={siteContent.businessInfo.instagramUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] hover:text-[#1F3024] flex items-center justify-center transition-colors">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] hover:text-[#1F3024] flex items-center justify-center transition-colors">
+              {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#D4AF37] hover:text-[#1F3024] flex items-center justify-center transition-colors">
                 <Facebook className="w-4 h-4" />
-              </a>
+              </a> */}
             </div>
           </div>
 
