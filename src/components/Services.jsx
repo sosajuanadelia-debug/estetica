@@ -64,12 +64,26 @@ export default function Services() {
                       {/* Puntos de Beneficios con Checkmark (✓) */}
                       {service.benefits && service.benefits.length > 0 && (
                         <div className="space-y-2 pt-2">
-                          {service.benefits.map((benefit, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#4E5C51]">
-                              <Check className="w-4 h-4 text-[#1F3024] shrink-0 mt-0.5 stroke-[2.5]" />
-                              <span>{benefit}</span>
-                            </div>
-                          ))}
+                          {service.benefits.map((benefit, idx) => {
+                            const hasColon = benefit.includes(': ');
+                            const title = hasColon ? benefit.split(': ')[0] : '';
+                            const desc = hasColon ? benefit.split(': ').slice(1).join(': ') : benefit;
+
+                            return (
+                              <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#4E5C51]">
+                                <Check className="w-4 h-4 text-[#1F3024] shrink-0 mt-0.5 stroke-[2.5]" />
+                                <span>
+                                  {hasColon ? (
+                                    <>
+                                      <strong className="text-[#1F3024] font-semibold">{title}:</strong> {desc}
+                                    </>
+                                  ) : (
+                                    benefit
+                                  )}
+                                </span>
+                              </div>
+                            );
+                          })}
                         </div>
                       )}
                     </div>
@@ -187,12 +201,26 @@ export default function Services() {
                     Beneficios Principales
                   </h4>
                   <div className="space-y-1.5 sm:space-y-2">
-                    {selectedService.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#4E5C51]">
-                        <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D4AF37] shrink-0 mt-0.5 stroke-[3]" />
-                        <span>{benefit}</span>
-                      </div>
-                    ))}
+                    {selectedService.benefits.map((benefit, idx) => {
+                      const hasColon = benefit.includes(': ');
+                      const title = hasColon ? benefit.split(': ')[0] : '';
+                      const desc = hasColon ? benefit.split(': ').slice(1).join(': ') : benefit;
+
+                      return (
+                        <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#4E5C51]">
+                          <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D4AF37] shrink-0 mt-0.5 stroke-[3]" />
+                          <span>
+                            {hasColon ? (
+                              <>
+                                <strong className="text-[#1F3024] font-semibold">{title}:</strong> {desc}
+                              </>
+                            ) : (
+                              benefit
+                            )}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               )}

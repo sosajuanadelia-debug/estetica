@@ -90,12 +90,13 @@ export const siteContent = {
       title: "Podología & Pedicura Clínica",
       image: "/assets/gallery_3.png",
       duration: "50 min",
-      description: "Atención integral para la salud y estética del pie: exfoliación, parafina y tratamiento de afecciones.",
-      fullDetails: "Cuidado clínico especializado para aliviar la fatiga y restaurar la belleza de tus pies. Incluye baño hidroterapéutico con sales marinas, tratamiento de durezas y callosidades, corte anatómico y encarrilamiento de uñas, exfoliación con piedra pómez y baño de parafina hidratante con lavanda.",
+      description: "Cuidado profesional e integral para la salud, higiene y belleza de tus pies.",
+      fullDetails: "Tratamiento clínico especializado para la salud y prevención de molestias en tus pies. Ofrecemos higiene profesional, alivio del dolor y eliminación de durezas mediante protocolos higiénicos y seguros.",
       benefits: [
-        "Tratamiento higiénico preventivo para mantener pies sanos",
-        "Hidratación profunda que alivia durezas y cansancio acumulado",
-        "Alivio inmediato de tensiones en la planta del pie"
+        "Corte y limpieza de uñas: Higiene y cuidado profesional para uñas sanas.",
+        "Uñas encarnadas: Tratamiento seguro y efectivo para aliviar el dolor.",
+        "Helomas e hiperqueratosis: Eliminación de durezas y callosidades para tu bienestar.",
+        "Uñas engrosadas: Tratamiento especializado para mejorar la apariencia y salud de tus uñas."
       ]
     }
   ],
